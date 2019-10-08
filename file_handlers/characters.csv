@@ -1,0 +1,4 @@
+class_name,description,health,strength,endurance,agility
+Strength,"Strength-based character",100,16,8,10
+Endurance,"Endurance-based character",100,10,18,8
+Agility,"Agility-based character",100,13,12,15
