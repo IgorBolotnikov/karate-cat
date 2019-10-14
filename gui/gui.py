@@ -10,8 +10,6 @@ from api import app
 
 class GUI():
 
-    # ===== MAGIC METHODS =====
-
     def __init__(self):
         self.root = Tk()
         self.frame = Canvas(self.root)
@@ -23,8 +21,6 @@ class GUI():
         self.current_location = None
         self.current_scene = None
 
-
-    # ===== PUBLIC METHODS =====
 
     @staticmethod
     def show_message(message):
@@ -181,7 +177,6 @@ class GUI():
         y_coord = menu_coords[3] - BUTTON_HEIGHT - PADDING
         return (x_coord, y_coord)
 
-
     # ===== MAIN MENU =====
 
     # mathematics incoming!
@@ -209,7 +204,6 @@ class GUI():
             self.draw_menu_item(
                 item, number, start_y_offset, commands[number])
 
-
     # ===== NEW GAME MENU =====
 
     def draw_new_player_menu(self, classes, commands):
@@ -226,7 +220,6 @@ class GUI():
         self.draw_button(menu_coords, 'left' ,'BACK', commands[0])
         self.draw_button(menu_coords, 'right', 'CONFIRM', commands[1])
         for item in classes: self.class_entry.insert('end', item)
-
 
     # ===== LOCATION MENU =====
 
@@ -284,7 +277,6 @@ class GUI():
         self.draw_button(menu_coords, 'left', 'BACK', commands[0])
         self.draw_button(menu_coords, 'centre', 'PREVIEW', commands[1])
         self.draw_button(menu_coords, 'right', 'PLAY', commands[2])
-
 
     # ===== FIGHTING GUI =====
 
@@ -430,7 +422,6 @@ class GUI():
         self.draw_text((text_x_coord, text_y_coord), message)
         self.draw_button(menu_coords, 'centre', 'OK', commands[0])
 
-
     # ===== SAVE/LOAD GAME MENU =====
 
     def draw_one_slot(self, item, item_num, start_y_coord):
@@ -473,7 +464,6 @@ class GUI():
         else:
             self.draw_button(menu_coords, 'centre', 'DELETE', commands[1])
             self.draw_button(menu_coords, 'right', 'SAVE', commands[2])
-
 
     # ===== VIEW CHARACTER MENU =====
 

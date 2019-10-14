@@ -20,9 +20,6 @@ class PlayerSpriteMixin():
         self.frame_id = None
 
 
-    # ===== PUBLIC METHODS =====
-
-
     def get_animation_duration(self, animation):
         duration = 0
         for index in range(len(animation) - 1):
@@ -131,8 +128,6 @@ class PlayerSpriteMixin():
         index += 1
         self.root.after(duration, self.run_dying_animation, index, animation)
 
-
-    # ===== PROTECTED METHODS =====
 
     def _load_animation(self, file_path):
         sequence = ImageSequence.Iterator(Image.open(file_path))

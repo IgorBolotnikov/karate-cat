@@ -7,8 +7,6 @@ from file_handlers import file_handlers
 
 class Player(PlayerSpriteMixin):
 
-    # ===== MAGIC METHODS =====
-
     def __init__(self, name=None, char_class=None, level=1,
                  current_exp=0, wins=0, losses=0, exp_to_levelup=100,
                  exp_cost=10, health=None, strength=None, endurance=None,
@@ -76,8 +74,6 @@ class Player(PlayerSpriteMixin):
         return (self._rounds_to_survive(other) >= other._rounds_to_survive(self))
 
 
-    # ===== ADDITIONAL PROPERTIES =====
-
     # This property return value can be expanded later
     @property
     def attack_value(self):
@@ -95,8 +91,6 @@ class Player(PlayerSpriteMixin):
         return BODYPARTS
 
 
-    # ===== PUBLIC METHODS =====
-
     def print_bodyparts(self):
         for num, bodypart in BODYPARTS.items():
             print(f'{num}: {bodypart}')
@@ -109,8 +103,6 @@ class Player(PlayerSpriteMixin):
             bodypart = self.bodypart
         return BODYPARTS[bodypart]
 
-
-    # ===== PROTECTED METHODS =====
 
     def _make_human_player(self, name, char_class):
         self.name = name

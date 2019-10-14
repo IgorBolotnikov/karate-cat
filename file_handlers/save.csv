@@ -1,6 +1,6 @@
 number,name,char_class,level,current_exp,wins,losses,exp_to_levelup,exp_cost,health,strength,endurance,agility
-1,Catso,Strength,1,20,2,0,100,10,100,16,8,10
+1,Catso,Strength,1,30,3,0,100,10,100,16,8,10
 2,[ EMPTY ],,,,,,,,,,,
 3,[ EMPTY ],,,,,,,,,,,
 4,[ EMPTY ],,,,,,,,,,,
-5,[ EMPTY ],,,,,,,,,,,
+5,Pirozhok,Strength,1,10,1,0,100,10,100,16,8,10

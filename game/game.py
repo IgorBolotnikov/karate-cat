@@ -8,8 +8,6 @@ from file_handlers import file_handlers
 
 class Game():
 
-    # ===== MAGIC METHODS =====
-
     def __init__(self):
         self.gui = gui.GUI()
         self._name = "KARATE CAT"
@@ -18,9 +16,6 @@ class Game():
         # Make sure that there is always a logs file present
         self.save_file = file_handlers.SaveFileHandler()
         self._show_main_screen()
-
-
-    # ===== PROTECTED METHODS =====
 
     # ===== MAIN MENU / TITLE SCREEN =====
 
@@ -38,7 +33,6 @@ class Game():
 
     def _show_main_screen(self):
         self.gui.draw_main_screen(MENU_ITEMS, self._get_main_menu_commands())
-
 
     # ===== NEW GAME MENU =====
 
@@ -67,7 +61,6 @@ class Game():
         classes = file_handlers.CharsFileHandler().give_char_classes_dict()
         self.gui.draw_new_game_screen(classes.values(), commands)
 
-
     # ===== LOCATION MENU =====
 
     def get_location_commands(self):
@@ -90,7 +83,6 @@ class Game():
             return
         commands = self.get_location_commands()
         self.gui.draw_location_screen(commands)
-
 
     # ===== FIGHT MENU =====
 
@@ -196,7 +188,6 @@ class Game():
         self.gui.draw_fight_screen(
             self.player1, self.player2, self._get_play_commands())
 
-
     # ===== LOAD GAME MENU =====
 
     def _load_player(self):
@@ -229,7 +220,6 @@ class Game():
         commands = self._get_load_game_commands()
         self.gui.draw_save_slots_screen(slots, commands, load=True)
 
-
     # ===== SAVE GAME MENU =====
 
     def _delete_slot(self):
@@ -244,9 +234,9 @@ class Game():
 
     def _save_player(self):
         slots = self.save_file.get_save_slots()
-        slot_num = int(self.gui.chosen_slot.get()) # 0-based list
+        slot_num = int(self.gui.chosen_slot.get())
         commands = self._get_save_game_commands()
-        if slots[slot_num]['name'] == '[ EMPTY ]':
+        if slots[slot_num - 1]['name'] == '[ EMPTY ]':
             self.save_file.save_player(self.player1, slot_num)
             self.gui.show_message(PLAYER_SAVED_MESSAGE)
             slots = self.save_file.get_save_slots()

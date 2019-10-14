@@ -6,10 +6,9 @@ from .constants import *
 
 class CSVHandlerMixin():
 
-    # ===== PUBLIC METHODS =====
-
     def create_csv_file(self, filename, headers, delimiter):
-        if os.path.isfile(self.filename): return
+        if os.path.isfile(self.filename):
+            return
         with open(filename, WRITE, newline=NEWLINE) as csv_file:
             writer = csv.DictWriter(
                 csv_file, fieldnames=headers, delimiter=delimiter)
@@ -40,8 +39,6 @@ class CSVHandlerMixin():
             return result[0] if result else None
 
 
-    # ===== STATIC METHODS =====
-
     @staticmethod
     def _remove_headers(rows):
         return rows[1:]
@@ -49,22 +46,18 @@ class CSVHandlerMixin():
 
 class SaveFileHandler(CSVHandlerMixin):
 
-    # ===== MAGIC METHODS =====
-
     def __init__(self):
         self.filename = SAVE_FILE
         self.headers = SAVE_HEADERS
         self.delimiter = SAVE_DELIMITER
         self.create_csv_file(self.filename, self.headers, self.delimiter)
-        if not os.stat(self.filename).st_size == 0: return
+        if not os.stat(self.filename).st_size == 0:
+            return
         self._initialize_safe_file()
 
 
-    # ===== PUBLIC METHODS =====
-
     def get_save_slots(self):
-        slots = self.read_csv_file(
-            self.filename, self.headers, self.delimiter)
+        slots = self.read_csv_file(self.filename, self.headers, self.delimiter)
         output = []
         for slot in slots:
             number = slot.get('number')
@@ -117,10 +110,6 @@ class SaveFileHandler(CSVHandlerMixin):
         self.write_csv_file(self.filename, self.headers, self.delimiter, slots)
 
 
-    # =============================
-    # ===== PROTECTED METHODS =====
-    # =============================
-
     def _get_blank_slot(self):
         blank_slot = {}
         for item in self.headers:
@@ -140,16 +129,12 @@ class SaveFileHandler(CSVHandlerMixin):
 
 class CharsFileHandler(CSVHandlerMixin):
 
-    # ===== MAGIC METHODS =====
-
     def __init__(self):
         self.filename = CHARS_FILE
         self.headers = CHARS_HEADERS
         self.delimiter = CHARS_DELIMITER
         self.create_csv_file(self.filename, self.headers, self.delimiter)
 
-
-    # ===== PUBLIC METHODS =====
 
     def give_char_classes_dict(self):
         classes_info = self.read_csv_file(
