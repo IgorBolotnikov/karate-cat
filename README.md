@@ -1,3 +1,6 @@
+> [!WARNING]
+> This repository was moved [here](https://codeberg.org/igorbolotnikov/karate-cat)
+
 # Hello!
 
 This is a simple fighting game.
